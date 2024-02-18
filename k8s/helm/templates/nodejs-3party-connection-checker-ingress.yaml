@@ -13,7 +13,7 @@ spec:
   - host: thirdparty-connection-checker.0xnutx.space
     http:
       paths:
-      - path: /
+      - path: "/checker(/|$)(.*)"
         pathType: Prefix
         backend:
           service:
