@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.3party-connection-checker.namespace}}
+spec:
+  type: {{ .values.ingress.serviceType}}
+  ports:
+  - port: {{ .Values.3party-connection-checker.port }}
+  selector:
+    app: {{ .Release.Name }}
