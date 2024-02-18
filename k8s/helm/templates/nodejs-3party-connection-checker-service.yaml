@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: 3party-connection-checker
+  name: thirdparty-connection-checker
   namespace: nodejs-checker-argocd
 
   
@@ -10,4 +10,4 @@ spec:
   ports:
   - port: 4455
   selector:
-    app: 3party-connection-checker
+    app: thirdparty-connection-checker

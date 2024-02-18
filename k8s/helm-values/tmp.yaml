@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 3party-connection-checker
+  name: thirdparty-connection-checker
   namespace: nodejs-checker-argocd
   labels:
-    app: 3party-connection-checker
+    app: thirdparty-connection-checker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: 3party-connection-checker
+      app: thirdparty-connection-checker
   template:
     metadata:
       labels:
-        app: 3party-connection-checker
+        app: thirdparty-connection-checker
     spec:
       containers:
-      - name: 3party-connection-checker
+      - name: thirdparty-connection-checker
         image: devsupanut/nodejs-3party-checker:1.2
         imagePullPolicy: Always
         ports:

@@ -1,4 +1,4 @@
-3party-connection-checker:
+thirdparty-connection-checker:
   namespace: nodejs-checker-argocd
   image: devsupanut/nodejs-3party-checker
   tag: 1.2
@@ -9,7 +9,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-  host: 3party-connection-checker.0xnutx.space
+  host: thirdparty-connection-checker.0xnutx.space
   path: /
   serviceType: ClusterIP
 extraEnv:
