@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: thirdparty-connection-checker
-        image: devsupanut/nodejs-3party-checker:1.2
+        image: devsupanut/nodejs-3party-checker:1.1
         imagePullPolicy: Always
         ports:
         - containerPort: 4455
