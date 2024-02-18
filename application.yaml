@@ -12,7 +12,7 @@ spec:
     path: k8s/helm
     helm:
       valueFiles:
-        - values-nodejs-3party-connection-checker.yaml
+        - helm-values/values-nodejs-3party-connection-checker.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: nodejs-checker-argocd
