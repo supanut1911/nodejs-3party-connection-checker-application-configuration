@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 3rd-connection-checker-argo-application
+  name: 3rd-connection-checker-argo-app
   namespace: argocd
 spec:
   project: default
