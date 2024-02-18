@@ -10,6 +10,8 @@ metadata:
   {{- end }} 
   name: {{ .Release.Name}}
   namespace: {{ .Values.3party-connection-checker.namespace}}
+
+  
 spec:
   rules:
   - host: {{ .Values.ingress.host}}

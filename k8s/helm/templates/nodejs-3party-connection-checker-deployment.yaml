@@ -5,8 +5,6 @@ metadata:
   namespace: {{ .Values.3party-connection-checker.namespace }}
   labels:
     app: {{ .Release.Name }}
-
-
 spec:
   replicas: {{ .Values.3party-connection-checker.replicas }}
   selector:
