@@ -10,8 +10,12 @@ spec:
   selector:
     matachLabels:
       app: 3party-connection-checker
+    template:
+      metadata:
+        labels:
+          app: 3party-connection-checker
     spec:
-      container:
+      containers:
       - name: 3party-connection-checker
         image: {{ .Values.3party-connection-checker.image }}:{{ .Values.3party-connection-checker.tag }}
         imagePullPolicy: Always
