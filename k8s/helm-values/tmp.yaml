@@ -8,7 +8,7 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matachLabels:
+    matchLabels:
       app: 3party-connection-checker
   template:
     metadata:
@@ -33,3 +33,5 @@ spec:
             path: "/health"
             port: 4455
             scheme: HTTP
+
+
