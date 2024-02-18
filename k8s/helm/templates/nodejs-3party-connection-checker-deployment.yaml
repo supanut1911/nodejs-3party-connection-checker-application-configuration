@@ -8,7 +8,7 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matachLabels:
+    matchLabels:
       app: thirdparty-connection-checker
   template:
     metadata:
