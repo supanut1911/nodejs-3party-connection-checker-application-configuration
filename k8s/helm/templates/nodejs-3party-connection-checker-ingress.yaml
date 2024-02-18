@@ -21,7 +21,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ .Release.Name }}
+            name: 3party-connection-checker
             port:
               number: {{ .Values.3party-connection-checker.port }}
               

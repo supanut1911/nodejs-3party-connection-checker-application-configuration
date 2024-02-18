@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: 3party-connection-checker
   namespace: {{ .Values.3party-connection-checker.namespace }}
   labels:
-    app: {{ .Release.Name }}
+    app: 3party-connection-checker
 spec:
   replicas: {{ .Values.3party-connection-checker.replicas }}
   selector:
     matachLabels:
-      app: {{ .Release.Name }}
+      app: 3party-connection-checker
     spec:
       container:
-      - name: {{ .Release.Name }}
+      - name: 3party-connection-checker
         image: {{ .Values.3party-connection-checker.image }}:{{ .Values.3party-connection-checker.tag }}
         imagePullPolicy: Always
         ports:
