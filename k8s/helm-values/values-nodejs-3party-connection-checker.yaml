@@ -1,5 +1,5 @@
 3party-connection-checker:
-  namespace: nodejs-checker
+  namespace: nodejs-checker-argocd
   image: devsupanut/nodejs-3party-checker
   tag: 1.2
   replicas: 1
