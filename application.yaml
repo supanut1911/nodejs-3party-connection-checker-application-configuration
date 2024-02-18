@@ -9,7 +9,10 @@ spec:
   source:
     repoURL: https://github.com/Supanut1911/nodejs-3party-connection-checker-application-configuration.git
     targetRevision: HEAD
-    path: k8s/helm/templates
+    path: k8s/helm
+    helm:
+      valueFile:
+        - k8s/helm-values/values-nodejs-3party-connection-checker.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: nodejs-checker-argocd
