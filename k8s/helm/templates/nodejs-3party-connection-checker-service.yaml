@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Values.3party-connection-checker.namespace}}
-  
 spec:
   type: {{ .values.ingress.serviceType}}
   ports:

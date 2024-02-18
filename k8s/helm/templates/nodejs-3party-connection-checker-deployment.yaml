@@ -12,7 +12,6 @@ spec:
   selector:
     matachLabels:
       app: {{ .Release.Name }}
-
     spec:
       container:
       - name: {{ .Release.Name }}
