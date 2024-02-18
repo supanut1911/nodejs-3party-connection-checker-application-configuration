@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.3party-connection-checker.namespace }}
+  labels:
+    app: {{ .Release.Name }}
+
+spec:
+  replicas: {{ .Values.3party-connection-checker.replicas }}
+  selector:
+    matachLabels:
+      app: {{ .Release.Name }}
+
+    spec:
+      container:
+      - name: {{ .Release.Name }}
+        image: {{ .Values.3party-connection-checker.image }}:{{ .Values.3party-connection-checker.tag }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: {{ .Values.3party-connection-checker.port }}
+          name: web-port
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.3party-connection-checker.healthCheckPath  }}
+            port: {{ .Values.3party-connection-checker.port  }}
+            scheme: HTTP
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.3party-connection-checker.healthCheckPath  }}
+            port: {{ .Values.3party-connection-checker.port  }}
+            scheme: HTTP

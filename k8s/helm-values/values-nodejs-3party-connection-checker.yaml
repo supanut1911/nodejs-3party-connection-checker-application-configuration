@@ -1,0 +1,16 @@
+3party-connection-checker:
+  namespace: nodejs-checker
+  image: devsupanut/nodejs-3party-checker
+  tag: 1.2
+  replicas: 1
+  port: 4455
+  healthCheckPath: "/health"
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  host: 3party-connection-checker.0xnutx.space
+  path: /
+  serviceType: ClusterIP
+extraEnv:
+  SERVICE_VERSION: v1
