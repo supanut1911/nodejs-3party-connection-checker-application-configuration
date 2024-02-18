@@ -12,7 +12,7 @@ spec:
     path: k8s
   destination:
     server: https://kubernetes.default.svc
-    namespace: nodejs-checker
+    namespace: nodejs-checker-argocd
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
