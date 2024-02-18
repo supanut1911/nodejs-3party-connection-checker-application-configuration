@@ -10,7 +10,7 @@ metadata:
   
 spec:
   rules:
-  - host: thirdparty-connection-checker.0xnutx.space
+  - host: thirdpartyconnectionchecker.0xnutx.space
     http:
       paths:
       - path: "/checker(/|$)(.*)"
