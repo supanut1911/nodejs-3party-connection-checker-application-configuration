@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: 3party-connection-checker
-  namespace: {{ .Values.3party-connection-checker.namespace}}
+  namespace: nodejs-checker-argocd
 
   
 spec:
-  type: {{ .values.ingress.serviceType}}
+  type: ClusterIP
   ports:
-  - port: {{ .Values.3party-connection-checker.port }}
+  - port: 4455
   selector:
     app: 3party-connection-checker
