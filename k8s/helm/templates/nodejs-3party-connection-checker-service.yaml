@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}
+  name: 3party-connection-checker
   namespace: {{ .Values.3party-connection-checker.namespace}}
 
   
@@ -10,4 +10,4 @@ spec:
   ports:
   - port: {{ .Values.3party-connection-checker.port }}
   selector:
-    app: {{ .Release.Name }}
+    app: 3party-connection-checker
