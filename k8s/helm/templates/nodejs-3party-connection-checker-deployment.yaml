@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: thirdparty-connection-checker
+  name: {{ .Release.Name }}
   namespace: {{ .Values.thirdpartyConnectionChecker.namespace}}
   labels:
     app: thirdparty-connection-checker
