@@ -1,11 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  {{- if .Values.ingress.annotations }}
   annotations:
+  {{- range $key, $value := .Values.ingress.annotations }}
+    {{ $key }}: {{ $value | quote }}
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-  name: thirdparty-connection-checker
-  namespace: nodejs-checker-argocd
+  {{- end }}
+  {{- end }} 
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.thirdpartyConnectionChecker.namespace}}
 
   
 spec:
@@ -13,11 +17,11 @@ spec:
   - host: thirdpartyconnectionchecker.0xnutx.space
     http:
       paths:
-      - path: "/checker(/|$)(.*)"
+      - path: {{ .Values.ingress.path}}
         pathType: Prefix
         backend:
           service:
-            name: thirdparty-connection-checker
+            name: {{ .Release.Name }}
             port:
-              number: 4455
+              number: {{ .Values.thirdpartyConnectionChecker.port}}
               
