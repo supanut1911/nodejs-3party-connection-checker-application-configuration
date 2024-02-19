@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: thirdparty-connection-checker
-  namespace: nodejs-checker-argocd
+  namespace: {{ .Values.thirdparty-connection-checker.namespace}}
   labels:
     app: thirdparty-connection-checker
 spec:
@@ -20,16 +20,16 @@ spec:
         image: devsupanut/nodejs-3party-checker:1.1
         imagePullPolicy: Always
         ports:
-        - containerPort: 4455
+        - containerPort: {{ .Values.thirdparty-connection-checker.port}}
           name: web-port
           protocol: TCP
         livenessProbe:
           httpGet:
-            path: "/health"
-            port: 4455
+            path: {{ .Values.thirdparty-connection-checker.healthCheckPath}}
+            port: {{ .Values.thirdparty-connection-checker.port}}
             scheme: HTTP
         readinessProbe:
           httpGet:
-            path: "/health"
-            port: 4455
+            path: {{ .Values.thirdparty-connection-checker.healthCheckPath}}
+            port: {{ .Values.thirdparty-connection-checker.port}}
             scheme: HTTP
