@@ -13,6 +13,10 @@ metadata:
 
   
 spec:
+  tls:
+  - hosts:
+    - thirdpartyconnectionchecker.0xnutx.space
+    secretName: ../../../thirdparty-connection-checker-secret/thirdparty-connection-checker-https-secret.yaml
   rules:
   - host: thirdpartyconnectionchecker.0xnutx.space
     http:
