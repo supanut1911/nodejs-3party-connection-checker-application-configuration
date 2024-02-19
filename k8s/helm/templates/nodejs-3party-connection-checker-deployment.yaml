@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: thirdparty-connection-checker
-  namespace: nodejs-checker-argocd
+  namespace: {{ .Values.thirdparty-connection-checker.namespace}}
   labels:
     app: thirdparty-connection-checker
 spec:
