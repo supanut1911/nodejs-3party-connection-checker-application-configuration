@@ -4,32 +4,32 @@ metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Values.thirdpartyConnectionChecker.namespace}}
   labels:
-    app: thirdparty-connection-checker
+    app: {{ .Release.Name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: thirdparty-connection-checker
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: thirdparty-connection-checker
+        app: {{ .Release.Name }}
     spec:
       containers:
-      - name: thirdparty-connection-checker
-        image: devsupanut/nodejs-3party-checker:1.1
+      - name: {{ .Release.Name }}
+        image: {{ .Values.thirdpartyConnectionChecker.image}}:{{ .Values.thirdpartyConnectionChecker.tag}}
         imagePullPolicy: Always
         ports:
-        - containerPort: 4455
+        - containerPort: {{ .Values.thirdpartyConnectionChecker.port}}
           name: web-port
           protocol: TCP
         livenessProbe:
           httpGet:
-            path:  "/health"
-            port: 4455
+            path:  {{ .Values.thirdpartyConnectionChecker.healthCheckPath}}
+            port: {{ .Values.thirdpartyConnectionChecker.port}}
             scheme: HTTP
         readinessProbe:
           httpGet:
-            path:  "/health"
-            port: 4455
+            path: {{ .Values.thirdpartyConnectionChecker.healthCheckPath}}
+            port: {{ .Values.thirdpartyConnectionChecker.port}}
             scheme: HTTP
