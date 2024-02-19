@@ -1,4 +1,4 @@
-thirdparty-connection-checker:
+thirdpartyConnectionChecker:
   namespace: nodejs-checker-argocd
   image: devsupanut/nodejs-3party-checker
   tag: 1.2
